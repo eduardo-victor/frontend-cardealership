@@ -10,7 +10,7 @@ const Card = (props) => {
                     <img src={props.foto_carro} alt="img-card" className='flex items-center justify-center w-[15vw] h-[30vh]' />
                 </div>
                 <div className='flex flex-col items-center justify-center'>
-                    <h1 className='text-white font-semibold'>Modelo:{props.nome_carro}</h1>
+                    <h1 className='text-white font-semibold'>Modelo: <span>{props.nome_carro}</span></h1>
                     <h1 className='text-white font-semibold'>Ano: {props.ano_carro}</h1>
                     <h1 className='text-white font-semibold'>Potência: {props.potencia_carro}</h1>
                 </div>
