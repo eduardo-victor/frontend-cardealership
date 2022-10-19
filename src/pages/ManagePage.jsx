@@ -7,8 +7,8 @@ export const ManagePage = () => {
   return (
     <>
     <Navbar/>
-    <div className= "w-screen h-[91.7vh] bg-slate-500 flex flex-col items-center">
-      <h1 className='text-3xl font-bold text-white mt-6'>Can you add a new car here!</h1>
+    <div className= "w-screen h-[91.7vh] bg-[#f1faee] flex flex-col items-center">
+      <h1 className='text-3xl font-bold text-black mt-6'>Preencha os campos para adicionar um novo carro!</h1>
         <Formik
           initialValues={{
             nome_carro: '',
@@ -18,16 +18,16 @@ export const ManagePage = () => {
             preco_carro: '',
             foto_carro: ''
           }}
-          validate={values => {
-            if (!values.nome_carro || !values.marca_carro || !values.ano_carro || !values.potencia_carro || !values.preco_carro || !values.foto_carro){
-              Notify.failure('Preenche tudo, burro')
-            }
-          }}
           onSubmit={(values, {setSubmitting}) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400)
+            if (!values.nome_carro || !values.marca_carro || !values.ano_carro || !values.potencia_carro || !values.preco_carro || !values.foto_carro){
+              Notify.warning('Oops! Preencha todos os campos :D')
+            }
+            else{
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                setSubmitting(false);
+              }, 400)
+            }
           }}
         >
           {({
@@ -38,7 +38,7 @@ export const ManagePage = () => {
             handleSubmit,
             isSubmitting
           }) => (
-            <div className='bg-black mt-6 '>            
+            <div className='bg-[#ffb703] mt-6 w-[40vh] h-[30vw] flex items-center justify-center rounded-md'>            
               <form className='flex flex-col' onSubmit={handleSubmit}>
                 <input
                 className='w-[30vh] h-[2vw] text-center rounded-md'
@@ -80,6 +80,28 @@ export const ManagePage = () => {
                 value={values.ano_carro}
                 />
                 {touched.ano_carro}
+                <input
+                className='mt-6 w-[30vh] h-[2vw] text-center rounded-md'
+                type="number"
+                name="preco_carro"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder='Preço do carro...'
+                value={values.preco_carro}
+                />
+                {touched.preco_carro}
+                <input
+                className='ml-8 mt-6 w-[20vh] h-[2vw] text-center rounded-sm'
+                type="file"
+                name="foto_carro"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.foto_carro}
+                />
+                {touched.foto_carro}
+                <button className='mt-6 bg-[#023047] text-white rounded-sm' type="submit">
+                Cadastrar
+                </button>
               </form>
             </div>
           )}
