@@ -17,20 +17,22 @@ export const ManagePage = () => {
             potencia_carro: '',
             ano_carro: '',
             preco_carro: '',
-            foto_carro: ''
+            foto_carro: '',
           }}
           onSubmit={(values, {setSubmitting}) => {
             if (!values.nome_carro || !values.marca_carro || !values.ano_carro || !values.potencia_carro || !values.preco_carro || !values.foto_carro){
               Notify.warning('Oops! Preencha todos os campos :D')
             }
             else{
-              axios.post('http://127.0.0.1:8000/carros/', values)
-              .then(
-                Notify.success('Carro cadastrado com sucesso!')
-              )
-              .catch(
-                console.log('mamou')
-              )
+              axios.post('http://127.0.0.1:8000/carros/', values, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+              })
+              .then(res => {
+                console.log(res)
+              })
+              .catch((err) => {
+                console.log(err)
+              })
             }
           }}
         >
@@ -103,7 +105,7 @@ export const ManagePage = () => {
                 value={values.foto_carro}
                 />
                 {touched.foto_carro}
-                <button className='mt-6 bg-[#ffb703] text-white rounded-sm hover:bg-[#db9e04]' type="submit">
+                <button className='mt-6 bg-[#ffb703] h-[4vh] text-white rounded-sm hover:bg-[#db9e04]' type="submit">
                 Cadastrar
                 </button>
               </form>
