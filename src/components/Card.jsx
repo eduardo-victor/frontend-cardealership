@@ -13,7 +13,7 @@ const Card = (props) => {
                     <h1 className='text-white font-semibold'>Ano: {props.ano_carro}</h1>
                     <h1 className='text-white font-semibold'>Potência: {props.potencia_carro}</h1>
                 </div>
-                <button className='text-white bg-red-600 w-[18vw] h-[4vh] rounded-sm mt-8 hover:text-black hover:bg-red-700'>Delete</button>
+                <button className='text-white bg-red-600 w-[18vw] h-[4vh] rounded-sm mt-2 hover:text-black hover:bg-red-700'>Delete</button>
             </div>
         </div>
   )

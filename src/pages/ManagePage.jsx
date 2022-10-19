@@ -8,8 +8,8 @@ export const ManagePage = () => {
   return (
     <>
     <Navbar/>
-    <div className= "w-screen h-[91.7vh] bg-[#f1faee] flex flex-col items-center">
-      <h1 className='text-3xl font-bold text-black mt-6'>Preencha os campos para adicionar um novo carro!</h1>
+    <div className= "w-screen h-[91.7vh] bg-slate-500 flex flex-col items-center justify-center">
+      <h1 className='text-3xl font-semibold text-yellow-400 mt-6'>Preencha os campos para adicionar um novo carro!</h1>
         <Formik
           initialValues={{
             nome_carro: '',
@@ -19,7 +19,7 @@ export const ManagePage = () => {
             preco_carro: '',
             foto_carro: '',
           }}
-          onSubmit={(values, {setSubmitting}) => {
+          onSubmit={(values) => {
             if (!values.nome_carro || !values.marca_carro || !values.ano_carro || !values.potencia_carro || !values.preco_carro || !values.foto_carro){
               Notify.warning('Oops! Preencha todos os campos :D')
             }
@@ -41,13 +41,12 @@ export const ManagePage = () => {
             touched,
             handleChange,
             handleBlur,
-            handleSubmit,
-            isSubmitting
+            handleSubmit
           }) => (
-            <div className='bg-slate-800 mt-6 w-[40vh] h-[30vw] flex items-center justify-center rounded-md'>            
+            <div className='bg-slate-800 mt-6 w-[55vh] h-[30vw] flex items-center justify-center rounded-md'>            
               <form className='flex flex-col' onSubmit={handleSubmit}>
                 <input
-                className='w-[30vh] h-[2vw] text-center rounded-md'
+                className='w-[35vh] h-[2vw] text-center rounded-md'
                 type="text"
                 name="nome_carro"
                 onChange={handleChange}
@@ -57,7 +56,7 @@ export const ManagePage = () => {
                 />
                 {touched.nome_carro}
                 <input
-                className='mt-6 w-[30vh] h-[2vw] text-center rounded-md'
+                className='mt-6 w-[35vh] h-[2vw] text-center rounded-md'
                 type="text"
                 name="marca_carro"
                 onChange={handleChange}
@@ -67,7 +66,7 @@ export const ManagePage = () => {
                 />
                 {touched.marca_carro}
                 <input
-                className='mt-6 w-[30vh] h-[2vw] text-center rounded-md'
+                className='mt-6 w-[35vh] h-[2vw] text-center rounded-md'
                 type="number"
                 name="potencia_carro"
                 onChange={handleChange}
@@ -77,7 +76,7 @@ export const ManagePage = () => {
                 />
                 {touched.potencia_carro}
                 <input
-                className='mt-6 w-[30vh] h-[2vw] text-center rounded-md'
+                className='mt-6 w-[35vh] h-[2vw] text-center rounded-md'
                 type="number"
                 name="ano_carro"
                 onChange={handleChange}
@@ -87,7 +86,7 @@ export const ManagePage = () => {
                 />
                 {touched.ano_carro}
                 <input
-                className='mt-6 w-[30vh] h-[2vw] text-center rounded-md'
+                className='mt-6 w-[35vh] h-[2vw] text-center rounded-md'
                 type="number"
                 name="preco_carro"
                 onChange={handleChange}
@@ -97,7 +96,7 @@ export const ManagePage = () => {
                 />
                 {touched.preco_carro}
                 <input
-                className='ml-8 mt-6 w-[20vh] h-[2vw] text-center rounded-sm'
+                className='ml-8 mt-6 w-[30vh] h-[2vw] text-center text-white rounded-sm'
                 type="file"
                 name="foto_carro"
                 onChange={handleChange}
@@ -105,7 +104,7 @@ export const ManagePage = () => {
                 value={values.foto_carro}
                 />
                 {touched.foto_carro}
-                <button className='mt-6 bg-[#ffb703] h-[4vh] text-white rounded-sm hover:bg-[#db9e04]' type="submit">
+                <button className='mt-6 bg-[#ffb703] h-[4vh] text-white font-semibold rounded-sm hover:bg-[#db9e04]' type="submit">
                 Cadastrar
                 </button>
               </form>
