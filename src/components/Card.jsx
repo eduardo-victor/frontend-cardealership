@@ -3,10 +3,10 @@ import React from 'react'
 const Card = (props) => {
   return (
     <div className='w-screen h-[91.7vh] flex items-center justify-center'>
-        <div className='flex flex-col w-[18vw] h-[51vh] bg-slate-700 rounded-md'>
+        <div className='flex flex-col w-[18vw] h-[51vh] bg-slate-800 rounded-md shadow-lg'>
             <div className='flex flex-col items-center justify-center'>
                 <h1 className='mt-4 text-white font-bold'>{props.marca_carro}</h1>
-                <div className='flex  items-center justify-center mt-4 bg-black'>
+                <div className='flex  items-center justify-center mt-4'>
                     <img src={props.foto_carro} alt="img-card" className='flex items-center justify-center w-[18vw] h-[30vh]' />
                 </div>
                 <div className='flex flex-col items-center justify-center'>

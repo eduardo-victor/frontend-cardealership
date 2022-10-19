@@ -38,7 +38,7 @@ export const ManagePage = () => {
             handleSubmit,
             isSubmitting
           }) => (
-            <div className='bg-[#ffb703] mt-6 w-[40vh] h-[30vw] flex items-center justify-center rounded-md'>            
+            <div className='bg-slate-800 mt-6 w-[40vh] h-[30vw] flex items-center justify-center rounded-md'>            
               <form className='flex flex-col' onSubmit={handleSubmit}>
                 <input
                 className='w-[30vh] h-[2vw] text-center rounded-md'
@@ -99,7 +99,7 @@ export const ManagePage = () => {
                 value={values.foto_carro}
                 />
                 {touched.foto_carro}
-                <button className='mt-6 bg-[#023047] text-white rounded-sm' type="submit">
+                <button className='mt-6 bg-[#ffb703] text-white rounded-sm hover:bg-[#db9e04]' type="submit">
                 Cadastrar
                 </button>
               </form>
