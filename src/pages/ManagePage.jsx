@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { Formik } from 'formik';
 import { Notify } from 'notiflix';
+import axios from 'axios';
 
 export const ManagePage = () => {
   return (
@@ -23,10 +24,13 @@ export const ManagePage = () => {
               Notify.warning('Oops! Preencha todos os campos :D')
             }
             else{
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-              }, 400)
+              axios.post('http://127.0.0.1:8000/carros/', values)
+              .then(
+                Notify.success('Carro cadastrado com sucesso!')
+              )
+              .catch(
+                console.log('mamou')
+              )
             }
           }}
         >
