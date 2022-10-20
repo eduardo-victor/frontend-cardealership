@@ -12,7 +12,7 @@ const PageList = () => {
   function callApi(){
     axios.get(url)
     .then((res) => {
-      console.log(res.data  )
+      console.log(res.data)
       setCarros(res.data)
     })
   }
@@ -23,18 +23,17 @@ const PageList = () => {
 
   return (
     <>
-        <Navbar/>
-        <div className='w-screen h-[91.7vh] flex justify-center items-center bg-slate-500'>
+        {/* <Navbar/> */}
+        <div className='w-screen h-screen flex justify-center items-center grid grid-cols-4 gap-4 bg-slate-500'>
           {carros.map((carro, key) =>{
             return (
-              <Card
-                key={key}
-                marca_carro = {carro.marca_carro}
-                foto_carro = {carro.foto_carro}
-                nome_carro = {carro.nome_carro}
-                ano_carro = {carro.ano_carro}
-                potencia_carro = {carro.potencia_carro}
-              />
+                <Card
+                  marca_carro = {carro.marca_carro}
+                  foto_carro = {carro.foto_carro}
+                  nome_carro = {carro.nome_carro}
+                  ano_carro = {carro.ano_carro}
+                  potencia_carro = {carro.potencia_carro}
+                />
             )  
           })}
           </div>

@@ -10,8 +10,8 @@ export const ManagePage = () => {
   
   return (
     <>
-    <Navbar/>
-    <div className= "w-screen h-[91.7vh] bg-slate-500 flex flex-col items-center justify-center">
+    {/* <Navbar/> */}
+    <div className= "w-screen h-screen bg-slate-500 flex flex-col items-center justify-center">
       <h1 className='text-3xl font-semibold text-yellow-400 mt-6'>Preencha os campos para adicionar um novo carro!</h1>
         <Formik
           initialValues={{
@@ -31,8 +31,7 @@ export const ManagePage = () => {
                 headers: { 'Content-Type': 'multipart/form-data' },
               })
               .then(res => {
-                Notify.success('Um novo carro foi cadastrado!')
-                navigate("/")
+                console.log(res)
               })
               .catch((err) => {
                 console.log(err)

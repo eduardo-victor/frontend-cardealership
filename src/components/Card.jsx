@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card = (props) => {
   return (
-        <div key={props.key} className='flex flex-col w-[18vw] h-[45vh] bg-slate-800 rounded-md shadow-lg ml-6'>
+        <div className='flex flex-col w-[18vw] h-[45vh] bg-slate-800 rounded-md shadow-lg ml-6'>
             <div className='flex flex-col items-center justify-center'>
                 <h1 className='mt-4 text-white font-bold'>{props.marca_carro}</h1>
                 <div className='flex  items-center justify-center mt-4'>
