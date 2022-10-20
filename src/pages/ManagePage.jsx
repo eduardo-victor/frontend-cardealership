@@ -2,9 +2,12 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { Formik } from 'formik';
 import { Notify } from 'notiflix';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export const ManagePage = () => {
+  const navigate = useNavigate();
+  
   return (
     <>
     <Navbar/>
@@ -16,8 +19,8 @@ export const ManagePage = () => {
             marca_carro: '',
             potencia_carro: '',
             ano_carro: '',
-            preco_carro: '',
-            foto_carro: '',
+            preco_carro:  '',
+            foto_carro: ''
           }}
           onSubmit={(values) => {
             if (!values.nome_carro || !values.marca_carro || !values.ano_carro || !values.potencia_carro || !values.preco_carro || !values.foto_carro){
@@ -28,7 +31,8 @@ export const ManagePage = () => {
                 headers: { 'Content-Type': 'multipart/form-data' },
               })
               .then(res => {
-                console.log(res)
+                Notify.success('Um novo carro foi cadastrado!')
+                navigate("/")
               })
               .catch((err) => {
                 console.log(err)
@@ -41,7 +45,7 @@ export const ManagePage = () => {
             touched,
             handleChange,
             handleBlur,
-            handleSubmit
+            handleSubmit, setFieldValue
           }) => (
             <div className='bg-slate-800 mt-6 w-[55vh] h-[30vw] flex items-center justify-center rounded-md'>            
               <form className='flex flex-col' onSubmit={handleSubmit}>
@@ -95,14 +99,9 @@ export const ManagePage = () => {
                 value={values.preco_carro}
                 />
                 {touched.preco_carro}
-                <input
-                className='ml-8 mt-6 w-[30vh] h-[2vw] text-center text-white rounded-sm'
-                type="file"
-                name="foto_carro"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.foto_carro}
-                />
+                <input id="foto_carro" className='ml-8 mt-6 w-[30vh] h-[2vw] text-center text-white rounded-sm' name="file" type="file" onChange={(event) => {
+                  setFieldValue("foto_carro", event.currentTarget.files[0]);
+                }} />
                 {touched.foto_carro}
                 <button className='mt-6 bg-[#ffb703] h-[4vh] text-white font-semibold rounded-sm hover:bg-[#db9e04]' type="submit">
                 Cadastrar

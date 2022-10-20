@@ -26,15 +26,16 @@ const PageList = () => {
         <Navbar/>
         <div className='w-screen h-[91.7vh] flex justify-center items-center bg-slate-500'>
           {carros.map((carro, key) =>{
-            return(
+            return (
               <Card
+                key={key}
                 marca_carro = {carro.marca_carro}
                 foto_carro = {carro.foto_carro}
                 nome_carro = {carro.nome_carro}
                 ano_carro = {carro.ano_carro}
                 potencia_carro = {carro.potencia_carro}
-              /> 
-            )
+              />
+            )  
           })}
           </div>
     </>
