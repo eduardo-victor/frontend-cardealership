@@ -24,7 +24,7 @@ const PageList = () => {
   return (
     <>
         {/* <Navbar/> */}
-        <div className='w-screen h-screen flex justify-center items-center grid grid-cols-4 gap-4 bg-slate-500'>
+        <div className='w-screen flex justify-center items-center grid grid-cols-4 gap-4 bg-slate-500'>
           {carros.map((carro, key) =>{
             return (
                 <Card
