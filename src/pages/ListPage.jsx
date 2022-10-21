@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
-import Navbar from '../components/Navbar'
 import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
-import Notiflix, { Notify } from 'notiflix';
+import { Notify } from 'notiflix';
+import {  useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 
 const PageList = () => {
   
+  const navigate = useNavigate();
   const [carros, setCarros] = useState([]);
   
   function callApi(){
@@ -20,10 +22,11 @@ const PageList = () => {
     callApi()
   }, []);
 
-  async function deleteMethod(props){
+  async function deleteMethod(id){
 
-    var url = `http://127.0.0.1:8000/carros/${props.id_carro}`
-  
+    console.log('chegou aqui')
+    var url = `http://127.0.0.1:8000/carros/${id}`
+    
     Confirm.show(
       'Deletar card',
       'Deseja deletar este card?',
@@ -34,6 +37,7 @@ const PageList = () => {
           axios.delete(url)
           .then(()  =>{
             Notify.success('Carro deletado com sucesso.')
+            window.location.reload()
           })
       },
   
@@ -45,25 +49,26 @@ const PageList = () => {
 
   return (
     <>
-        <div className='w-screen flex justify-center items-center grid grid-cols-4 gap-4 bg-slate-500'>
+        <div className='w-screen flex justify-center py-10 items-center bg-slate-500'>
+          <div className='grid grid-cols-4 gap-10'>
           {carros.map((carro) =>{
             return (
               <>
               <Card
-                  key = {carro.id_carro}
+                  id_carro = {carro.id_carro}
                   marca_carro = {carro.marca_carro}
                   foto_carro = {carro.foto_carro}
                   nome_carro = {carro.nome_carro}
                   ano_carro = {carro.ano_carro}
                   potencia_carro = {carro.potencia_carro}
                   preco_carro = {carro.preco_carro}
-                  deleteMethod = {deleteMethod}
+                  deleteMethod = {() => {deleteMethod(carro.id_carro)}}
                 />
-                
               </>  
-            )  
-          })}
+              )  
+            })}
           </div>
+        </div>
     </>
   )
 }

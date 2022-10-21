@@ -31,7 +31,7 @@ export const ManagePage = () => {
                 headers: { 'Content-Type': 'multipart/form-data' },
               })
               .then(res => {
-                console.log(res)
+                navigate('/')
               })
               .catch((err) => {
                 console.log(err)
