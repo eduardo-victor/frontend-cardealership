@@ -11,7 +11,7 @@ export const ManagePage = () => {
   return (
     <>
     {/* <Navbar/> */}
-    <div className= " bg-slate-500 flex flex-col items-center justify-center">
+    <div className= " h-screen bg-slate-500 flex flex-col items-center justify-center">
       <h1 className='text-3xl font-semibold text-yellow-400 mt-6'>Preencha os campos para adicionar um novo carro!</h1>
         <Formik
           initialValues={{
@@ -49,7 +49,7 @@ export const ManagePage = () => {
             <div className='bg-slate-800 mt-6 w-[55vh] h-[30vw] flex items-center justify-center rounded-md'>            
               <form className='flex flex-col' onSubmit={handleSubmit}>
                 <input
-                className='w-[35vh] h-[2vw] text-center rounded-md'
+                className='w-[35vh] h-[2vw] text-center rounded-sm'
                 type="text"
                 name="nome_carro"
                 onChange={handleChange}
@@ -59,7 +59,7 @@ export const ManagePage = () => {
                 />
                 {touched.nome_carro}
                 <input
-                className='mt-6 w-[35vh] h-[2vw] text-center rounded-md'
+                className='mt-6 w-[35vh] h-[2vw] text-center rounded-sm'
                 type="text"
                 name="marca_carro"
                 onChange={handleChange}
@@ -69,7 +69,7 @@ export const ManagePage = () => {
                 />
                 {touched.marca_carro}
                 <input
-                className='mt-6 w-[35vh] h-[2vw] text-center rounded-md'
+                className='mt-6 w-[35vh] h-[2vw] text-center rounded-sm'
                 type="number"
                 name="potencia_carro"
                 onChange={handleChange}
@@ -79,7 +79,7 @@ export const ManagePage = () => {
                 />
                 {touched.potencia_carro}
                 <input
-                className='mt-6 w-[35vh] h-[2vw] text-center rounded-md'
+                className='mt-6 w-[35vh] h-[2vw] text-center rounded-sm'
                 type="number"
                 name="ano_carro"
                 onChange={handleChange}
@@ -89,7 +89,7 @@ export const ManagePage = () => {
                 />
                 {touched.ano_carro}
                 <input
-                className='mt-6 w-[35vh] h-[2vw] text-center rounded-md'
+                className='mt-6 w-[35vh] h-[2vw] text-center rounded-sm'
                 type="number"
                 name="preco_carro"
                 onChange={handleChange}
