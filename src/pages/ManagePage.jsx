@@ -31,7 +31,8 @@ export const ManagePage = () => {
                 headers: { 'Content-Type': 'multipart/form-data' },
               })
               .then(res => {
-                navigate('/')
+                navigate('/list-cars')
+                window.location.reload()
               })
               .catch((err) => {
                 console.log(err)
